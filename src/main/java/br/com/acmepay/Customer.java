@@ -1,58 +1,59 @@
 package br.com.acmepay;
 
-import java.io.File;
 import java.util.List;
 
 public class Customer {
 
-    private File customerDocument;
+    private Long id;
 
-    private List<Account> customerAccounts;
+    private String name;
 
-    private String customerName;
+    private String email;
 
-    private String customerEmail;
+    private String phone;
 
-    private String customerPhone;
+    private String document;
+
+    private List<Account> accounts;
 
 
-    public File getCustomerDocument() {
-        return customerDocument;
+    public String getDocument() {
+        return document;
     }
 
-    public void setCustomerDocument(File customerDocument) {
-        this.customerDocument = customerDocument;
+    public void setDocument(String document) {
+        this.document = document;
     }
 
-    public List<Account> getCustomerAccounts() {
-        return customerAccounts;
+    public List<Account> getAccounts() {
+        return accounts;
     }
 
-    public void setCustomerAccounts(List<Account> customerAccounts) {
-        this.customerAccounts = customerAccounts;
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
     }
 
-    public String getCustomerName() {
-        return customerName;
+    public String getName() {
+        return name;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getCustomerEmail() {
-        return customerEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCustomerEmail(String customerEmail) {
-        this.customerEmail = customerEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getCustomerPhone() {
-        return customerPhone;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setCustomerPhone(String customerPhone) {
-        this.customerPhone = customerPhone;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
