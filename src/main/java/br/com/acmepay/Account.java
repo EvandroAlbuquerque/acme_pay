@@ -128,6 +128,8 @@ public class Account {
         BigDecimal actualBalances = new BigDecimal(BigInteger.ZERO);
         actualBalances.add(this.getBalance());
         actualBalances.add(destinyAccount.getBalance());
+        BigDecimal oldOriginBalance = new BigDecimal(this.getBalance());
+        BigDecimal oldDestinyBalance = new BigDecimal(destinyAccount.getBalance());
 
         if (this.balance.compareTo(amount) >= 0) {
             this.balance.subtract(amount);
@@ -138,6 +140,8 @@ public class Account {
             newBalances.add(destinyAccount.getBalance());
 
             if (actualBalances.compareTo(newBalances) != 0) {
+                this.setBalance(oldOriginBalance);
+                destinyAccount.setBalance(oldDestinyBalance);
                 throw new BalanceToWithdrawException("Money is not enough");
             }
         } else {
