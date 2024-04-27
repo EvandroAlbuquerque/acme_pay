@@ -1,12 +1,13 @@
-package br.com.acmepay;
+package br.com.acmepay.application.domain.models;
+
+import br.com.acmepay.application.domain.exception.BalanceToWithdrawException;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Account {
+public class AccountDomain {
 
     private Long id;
 
@@ -16,9 +17,9 @@ public class Account {
 
     private BigDecimal balance;
 
-    private Customer customer;
+    private CustomerDomain customerDomain;
 
-    private List<Card> cards;
+    private List<CardDomain> cardDomains;
 
     private LocalDateTime created_at;
 
@@ -34,12 +35,12 @@ public class Account {
         this.id = id;
     }
 
-    public List<Card> getCards() {
-        return cards;
+    public List<CardDomain> getCards() {
+        return cardDomains;
     }
 
-    public void setCards(List<Card> cards) {
-        this.cards = cards;
+    public void setCards(List<CardDomain> cardDomains) {
+        this.cardDomains = cardDomains;
     }
 
     public LocalDateTime getCreated_at() {
@@ -90,25 +91,25 @@ public class Account {
         this.balance = balance;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public CustomerDomain getCustomer() {
+        return customerDomain;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustomer(CustomerDomain customerDomain) {
+        this.customerDomain = customerDomain;
     }
 
     private List<String> transactions = new ArrayList<>();
 
-    public void create(Account account) {
-        this.setId(account.getId());
+    public void create(AccountDomain accountDomain) {
+        this.setId(accountDomain.getId());
         this.setCreated_at(LocalDateTime.now());
         this.setUpdated_at(null);
-        this.setCustomer(createCustomer(new Customer()));
+        this.setCustomer(createCustomer(new CustomerDomain()));
         this.setCards(new ArrayList<>());
-        this.setNumber(account.getNumber());
-        this.setAgency(account.getAgency());
-        this.setClosed(account.isClosed());
+        this.setNumber(accountDomain.getNumber());
+        this.setAgency(accountDomain.getAgency());
+        this.setClosed(accountDomain.isClosed());
         this.transactions.add("Account created: " + LocalDateTime.now().toString());
     }
 
@@ -131,19 +132,19 @@ public class Account {
         }
     }
 
-    public void transfer(BigDecimal amount, Account destinyAccount) throws BalanceToWithdrawException {
+    public void transfer(BigDecimal amount, AccountDomain destinyAccountDomain) throws BalanceToWithdrawException {
         this.withdraw(amount);
-        destinyAccount.deposit(amount);
-        this.transactions.add("Transfer done of" + amount.toString() +" from account " + this.number.toString() + " to account " + destinyAccount.number.toString() + ": " + LocalDateTime.now().toString());
+        destinyAccountDomain.deposit(amount);
+        this.transactions.add("Transfer done of" + amount.toString() +" from account " + this.number.toString() + " to account " + destinyAccountDomain.number.toString() + ": " + LocalDateTime.now().toString());
     }
 
-    private Customer createCustomer(Customer customer) {
-        customer.setId(customer.getId());
-        customer.setName(customer.getName());
-        customer.setEmail(customer.getEmail());
-        customer.setPhone(customer.getPhone());
-        customer.setDocument(customer.getDocument());
+    private CustomerDomain createCustomer(CustomerDomain customerDomain) {
+        customerDomain.setId(customerDomain.getId());
+        customerDomain.setName(customerDomain.getName());
+        customerDomain.setEmail(customerDomain.getEmail());
+        customerDomain.setPhone(customerDomain.getPhone());
+        customerDomain.setDocument(customerDomain.getDocument());
 
-        return customer;
+        return customerDomain;
     }
 }

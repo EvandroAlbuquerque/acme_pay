@@ -1,9 +1,9 @@
-package br.com.acmepay;
+package br.com.acmepay.application.domain.models;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public class Notification {
+public class NotificationDomain {
 
     private Long id;
 

@@ -1,18 +1,18 @@
-package br.com.acmepay;
+package br.com.acmepay.application.domain.models;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class Transaction {
+public class TransactionDomain {
 
     private UUID transactionId;
 
     private BigDecimal transactionValue;
 
-    private Account destinationAccount;
+    private AccountDomain destinationAccountDomain;
 
-    private Account originAccount;
+    private AccountDomain originAccountDomain;
 
     private LocalDateTime transactionDate;
 
@@ -35,20 +35,20 @@ public class Transaction {
         this.transactionValue = transactionValue;
     }
 
-    public Account getDestinationAccount() {
-        return destinationAccount;
+    public AccountDomain getDestinationAccount() {
+        return destinationAccountDomain;
     }
 
-    public void setDestinationAccount(Account destinationAccount) {
-        this.destinationAccount = destinationAccount;
+    public void setDestinationAccount(AccountDomain destinationAccountDomain) {
+        this.destinationAccountDomain = destinationAccountDomain;
     }
 
-    public Account getOriginAccount() {
-        return originAccount;
+    public AccountDomain getOriginAccount() {
+        return originAccountDomain;
     }
 
-    public void setOriginAccount(Account originAccount) {
-        this.originAccount = originAccount;
+    public void setOriginAccount(AccountDomain originAccountDomain) {
+        this.originAccountDomain = originAccountDomain;
     }
 
     public LocalDateTime getTransactionDate() {
