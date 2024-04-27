@@ -1,5 +1,6 @@
 package br.com.acmepay;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
@@ -62,5 +63,83 @@ public class Customer {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public List<Customer> customers = new ArrayList<>();
+
+    public void create(Customer customer) throws Exception {
+        this.checkIfDocumentExists(customer.getDocument());
+        this.checkIfEmailExists(customer.getEmail());
+
+        this.setId(customer.getId());;
+        this.setName(customer.getName());
+        this.setEmail(customer.getEmail());
+        this.setPhone(customer.getPhone());
+        this.setDocument(customer.getDocument());
+        this.setAccounts(null);
+        customers.add(customer);
+    }
+
+    public void update(Customer customerUpdated) {
+
+        for (Customer c: customers) {
+            if (c.getId().equals(customerUpdated.getId())) {
+
+                if (customerUpdated.getName() != null) {
+                    c.setName(customerUpdated.getName());
+                }
+
+                if (customerUpdated.getEmail() != null) {
+                    c.setEmail(customerUpdated.getEmail());
+                }
+
+                if (customerUpdated.getPhone() != null) {
+                    c.setPhone(customerUpdated.getPhone());
+                }
+
+                if (customerUpdated.getDocument() != null) {
+                    c.setDocument(customerUpdated.getDocument());
+                }
+
+                c.setAccounts(customerUpdated.getAccounts());
+            }
+        }
+    }
+
+    public List<Customer> listAll() {
+        return customers;
+    }
+
+    public Customer getByDocument(String document) {
+        for (Customer c: customers) {
+            if (c.getDocument().equals(document)) {
+                return c;
+            }
+        }
+    }
+
+    public void delete(Long id) {
+        for (Customer c: customers) {
+            if (c.getId().equals(id)) {
+                customers.remove(c);
+            }
+        }
+    }
+
+
+    public void checkIfDocumentExists(String document) throws DocumentAlreadyExistsException {
+        for (Customer c: customers) {
+            if (c.getDocument().equals(document)) {
+                throw new DocumentAlreadyExistsException("Document already exists.");
+            }
+        }
+    }
+
+    public void checkIfEmailExists(String email) throws EmailAlreadyExistsException {
+        for (Customer c: customers) {
+            if (c.getEmail().equals(email)) {
+                throw new EmailAlreadyExistsException("Email already exists.");
+            }
+        }
     }
 }

@@ -126,7 +126,8 @@ public class Account {
             this.balance.subtract(amount);
             this.transactions.add("Withdraw done of " + amount.toString() + ": " + LocalDateTime.now().toString());
         } else {
-           throw new BalanceToWithdrawException("Money is not enough");
+            this.transactions.add("Error on withdraw of " + amount.toString() + ": " + LocalDateTime.now().toString());
+            throw new BalanceToWithdrawException("Money is not enough");
         }
     }
 
