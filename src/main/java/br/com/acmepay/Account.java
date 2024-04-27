@@ -2,6 +2,7 @@ package br.com.acmepay;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Account {
@@ -24,21 +25,60 @@ public class Account {
 
     private Boolean closed;
 
+    public Long getId() {
+        return id;
+    }
 
-    public Integer getAccountNumber() {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<Card> getCards() {
+        return cards;
+    }
+
+    public void setCards(List<Card> cards) {
+        this.cards = cards;
+    }
+
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+    public LocalDateTime getUpdated_at() {
+        return updated_at;
+    }
+
+    public void setUpdated_at(LocalDateTime updated_at) {
+        this.updated_at = updated_at;
+    }
+
+    public Boolean isClosed() {
+        return closed;
+    }
+
+    public void setClosed(Boolean closed) {
+        this.closed = closed;
+    }
+
+    public Integer getNumber() {
         return number;
     }
 
-    public void setAccountNumber(Integer accountNumber) {
-        number = accountNumber;
+    public void setNumber(Integer number) {
+        number = number;
     }
 
-    public Integer getAgencyNumber() {
+    public Integer getAgency() {
         return agency;
     }
 
-    public void setAgencyNumber(Integer agencyNumber) {
-        agency = agencyNumber;
+    public void setAgency(Integer agency) {
+        agency = number;
     }
 
     public BigDecimal getBalance() {
@@ -47,5 +87,49 @@ public class Account {
 
     public void setBalance(BigDecimal balance) {
         this.balance = balance;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    private List<Account> accountsCreated = new ArrayList<>();
+
+    public void create(Account account) {
+        this.setId(account.getId());
+        this.setCreated_at(LocalDateTime.now());
+        this.setUpdated_at(null);
+        this.setCustomer(createCustomer(new Customer()));
+        this.setCards(new ArrayList<>());
+        this.setNumber(account.getNumber());
+        this.setAgency(account.getAgency());
+        this.setClosed(account.isClosed());
+        this.accountsCreated.add(this);
+    }
+
+    public void deposit(BigDecimal amount) {
+        this.balance.add(amount);
+    }
+
+    public void withdraw(BigDecimal amount) throws BalanceToWithdrawException {
+        if (this.balance.compareTo(amount) >= 0) {
+            this.balance.subtract(amount);
+        } else {
+           throw new BalanceToWithdrawException("Lack of money to withdraw");
+        }
+    }
+
+    private Customer createCustomer(Customer customer) {
+        customer.setId(customer.getId());
+        customer.setName(customer.getName());
+        customer.setEmail(customer.getEmail());
+        customer.setPhone(customer.getPhone());
+        customer.setDocument(customer.getDocument());
+
+        return customer;
     }
 }
