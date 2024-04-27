@@ -110,12 +110,13 @@ public class Customer {
         return customers;
     }
 
-    public Customer getByDocument(String document) {
+    public Customer getByDocument(String document) throws DocumentNotFoundException {
         for (Customer c: customers) {
             if (c.getDocument().equals(document)) {
                 return c;
             }
         }
+        throw new DocumentNotFoundException("Document not found");
     }
 
     public void delete(Long id) {
@@ -126,7 +127,6 @@ public class Customer {
         }
     }
 
-
     public void checkIfDocumentExists(String document) throws DocumentAlreadyExistsException {
         for (Customer c: customers) {
             if (c.getDocument().equals(document)) {
@@ -134,6 +134,7 @@ public class Customer {
             }
         }
     }
+
 
     public void checkIfEmailExists(String email) throws EmailAlreadyExistsException {
         for (Customer c: customers) {
