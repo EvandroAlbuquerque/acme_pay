@@ -129,30 +129,8 @@ public class Account {
     }
 
     public void transfer(BigDecimal amount, Account destinyAccount) throws BalanceToWithdrawException {
-        BigDecimal actualBalances = new BigDecimal(BigInteger.ZERO);
-        actualBalances.add(this.getBalance());
-        actualBalances.add(destinyAccount.getBalance());
-        BigDecimal oldOriginBalance = new BigDecimal(BigInteger.ZERO);
-        oldOriginBalance.add(this.getBalance());
-        BigDecimal oldDestinyBalance = new BigDecimal(BigInteger.ZERO);
-        oldDestinyBalance.add(destinyAccount.getBalance());
-
-        if (hasEnoughBalance(amount)) {
-            this.balance.subtract(amount);
-            destinyAccount.balance.add(amount);
-
-            BigDecimal newBalances = new BigDecimal(BigInteger.ZERO);
-            newBalances.add(this.getBalance());
-            newBalances.add(destinyAccount.getBalance());
-
-            if (actualBalances.compareTo(newBalances) != 0) {
-                this.setBalance(oldOriginBalance);
-                destinyAccount.setBalance(oldDestinyBalance);
-                throw new BalanceToWithdrawException("Money is not enough");
-            }
-        } else {
-            throw new BalanceToWithdrawException("Money is not enough");
-        }
+        this.withdraw(amount);
+        destinyAccount.deposit(amount);
     }
 
     private Customer createCustomer(Customer customer) {
