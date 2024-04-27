@@ -112,12 +112,8 @@ public class Account {
         this.accountsCreated.add(this);
     }
 
-    public boolean hasEnoughBalance(Account account, BigDecimal amount) {
-        if (this.balance.compareTo(amount) >= 0) {
-            return true;
-        } else {
-            return false;
-        }
+    public boolean hasEnoughBalance(BigDecimal amount) {
+        return this.balance.compareTo(amount) >= 0;
     }
 
     public void deposit(BigDecimal amount) {
@@ -125,7 +121,7 @@ public class Account {
     }
 
     public void withdraw(BigDecimal amount) throws BalanceToWithdrawException {
-        if (hasEnoughBalance(this, amount)) {
+        if (hasEnoughBalance(amount)) {
             this.balance.subtract(amount);
         } else {
            throw new BalanceToWithdrawException("Money is not enough");
@@ -141,7 +137,7 @@ public class Account {
         BigDecimal oldDestinyBalance = new BigDecimal(BigInteger.ZERO);
         oldDestinyBalance.add(destinyAccount.getBalance());
 
-        if (hasEnoughBalance(this, amount)) {
+        if (hasEnoughBalance(amount)) {
             this.balance.subtract(amount);
             destinyAccount.balance.add(amount);
 
