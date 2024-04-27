@@ -98,7 +98,7 @@ public class Account {
         this.customer = customer;
     }
 
-    private List<Account> accountsCreated = new ArrayList<>();
+    private List<String> transactions = new ArrayList<>();
 
     public void create(Account account) {
         this.setId(account.getId());
@@ -109,7 +109,7 @@ public class Account {
         this.setNumber(account.getNumber());
         this.setAgency(account.getAgency());
         this.setClosed(account.isClosed());
-        this.accountsCreated.add(this);
+        this.transactions.add("Account created: " + LocalDateTime.now().toString());
     }
 
     public boolean hasEnoughBalance(BigDecimal amount) {
@@ -118,11 +118,13 @@ public class Account {
 
     public void deposit(BigDecimal amount) {
         this.balance.add(amount);
+        this.transactions.add("Deposit done of " + amount.toString() + ": " + LocalDateTime.now().toString());
     }
 
     public void withdraw(BigDecimal amount) throws BalanceToWithdrawException {
         if (hasEnoughBalance(amount)) {
             this.balance.subtract(amount);
+            this.transactions.add("Withdraw done of " + amount.toString() + ": " + LocalDateTime.now().toString());
         } else {
            throw new BalanceToWithdrawException("Money is not enough");
         }
@@ -131,6 +133,7 @@ public class Account {
     public void transfer(BigDecimal amount, Account destinyAccount) throws BalanceToWithdrawException {
         this.withdraw(amount);
         destinyAccount.deposit(amount);
+        this.transactions.add("Transfer done of" + amount.toString() +" from account " + this.number.toString() + " to account " + destinyAccount.number.toString() + ": " + LocalDateTime.now().toString());
     }
 
     private Customer createCustomer(Customer customer) {
