@@ -1,6 +1,7 @@
 package br.com.acmepay;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -119,7 +120,28 @@ public class Account {
         if (this.balance.compareTo(amount) >= 0) {
             this.balance.subtract(amount);
         } else {
-           throw new BalanceToWithdrawException("Lack of money to withdraw");
+           throw new BalanceToWithdrawException("Money is not enough");
+        }
+    }
+
+    public void transfer(BigDecimal amount, Account destinyAccount) throws BalanceToWithdrawException {
+        BigDecimal actualBalances = new BigDecimal(BigInteger.ZERO);
+        actualBalances.add(this.getBalance());
+        actualBalances.add(destinyAccount.getBalance());
+
+        if (this.balance.compareTo(amount) >= 0) {
+            this.balance.subtract(amount);
+            destinyAccount.balance.add(amount);
+
+            BigDecimal newBalances = new BigDecimal(BigInteger.ZERO);
+            newBalances.add(this.getBalance());
+            newBalances.add(destinyAccount.getBalance());
+
+            if (actualBalances.compareTo(newBalances) != 0) {
+                throw new BalanceToWithdrawException("Money is not enough");
+            }
+        } else {
+            throw new BalanceToWithdrawException("Money is not enough");
         }
     }
 
