@@ -4,52 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff493f60-5283-4fd7-93cd-fe41b05e5d2a" name="Changes" comment="" />
+    <list default="true" id="e3e94f33-cf7a-465d-a1da-14c80a943300" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
   <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
+  "associatedIndex": 2
 }]]></component>
-  <component name="ProjectId" id="2fCgOt9JrnfK7TZ2XBMLZAdMQbg" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2gJzT24MTRqaqAOgqakayuOW1zy" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "onboarding.tips.debug.path": "/home/evandro/Documents/Projects/acme_pay/src/main/java/br/com/acmepay/Main.java"
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "C:/Users/evandragem/IdeaProjects/acme-pay"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ff493f60-5283-4fd7-93cd-fe41b05e5d2a" name="Changes" comment="" />
-      <created>1713310444819</created>
+      <changelist id="e3e94f33-cf7a-465d-a1da-14c80a943300" name="Changes" comment="" />
+      <created>1715430473151</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1713310444819</updated>
+      <updated>1715430473151</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/br/com/acmepay/Main.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
