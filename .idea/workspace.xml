@@ -4,15 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3e94f33-cf7a-465d-a1da-14c80a943300" name="Changes" comment="" />
+    <list default="true" id="e3e94f33-cf7a-465d-a1da-14c80a943300" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2gJzT24MTRqaqAOgqakayuOW1zy" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -22,10 +29,25 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "modularizacao",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "C:/Users/evandragem/IdeaProjects/acme-pay"
+    "last_opened_file_path": "C:/Users/evandragem/IdeaProjects/acme_pay",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\evandragem\IdeaProjects\acme-pay\acme-pay-transaction-service\src\main\java\br\com\acmepay" />
+      <recent name="C:\Users\evandragem\IdeaProjects\acme-pay\acme-pay-notification-service\src\main\java\br\com\acmepay" />
+      <recent name="C:\Users\evandragem\IdeaProjects\acme-pay\acme-pay-customer-service\src\main\java\br\com\acmepay" />
+      <recent name="C:\Users\evandragem\IdeaProjects\acme-pay\acme-pay-card-service\src\main\java\br\com\acmepay" />
+      <recent name="C:\Users\evandragem\IdeaProjects\acme-pay\acme-pay-account-service\src\main\java\br\com\acmepay" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="br.com.acmepay.application.domain.models" />
+      <recent name="br.com.acmepay.application.domain.exception" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
