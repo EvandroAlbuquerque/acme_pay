@@ -1,4 +1,4 @@
-package br.com.acmepay.application.domain.models;
+package br.com.acmepay.application.domain.model;
 
 import br.com.acmepay.application.domain.exception.BalanceToWithdrawException;
 import lombok.*;
