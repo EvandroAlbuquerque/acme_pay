@@ -1,7 +1,7 @@
 package br.com.acmepay.adapters.output;
 
-import br.com.acmepay.adapters.output.entity.AccountEntity;
-import br.com.acmepay.adapters.output.repository.AccountRepository;
+import br.com.acmepay.adapters.output.database.entity.AccountEntity;
+import br.com.acmepay.adapters.output.database.repository.AccountRepository;
 import br.com.acmepay.application.domain.model.AccountDomain;
 import br.com.acmepay.application.ports.out.ICreateAccount;
 import lombok.AllArgsConstructor;

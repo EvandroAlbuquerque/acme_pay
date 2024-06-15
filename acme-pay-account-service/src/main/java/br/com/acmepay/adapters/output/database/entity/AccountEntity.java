@@ -1,4 +1,4 @@
-package br.com.acmepay.adapters.output.entity;
+package br.com.acmepay.adapters.output.database.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "accounts")
+@Table(name = "account")
 public class AccountEntity {
 
     @Id
